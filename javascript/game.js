@@ -1,57 +1,46 @@
 var inquirer = require("inquirer");
 
 
-// Created a series of questions
-inquirer.prompt([
+// variable we will use to count how many times our questions have been asked
+var count = 0;
+// array in which we will store each of our new programmer objects
+var letterFromWordArray = [];
 
-    {
-        type: "input",
-        name: "letter",
-        message: "Guess a letter!"
-    },
+var askQuestion = function() {
+  // if statement to ensure that our questions are only asked five times
+  if (count < word.length) {
 
-    {
-        type: "list",
-        name: "doingWhat",
-        message: "What are you doing in my house??",
-        choices: ["I made you cookies!", "No lie dude. I'm here to rob you.", "Uh. This is my house... Who are YOU???"]
-    },
 
-    {
-        type: "checkbox",
-        name: "carryingWhat",
-        message: "What are you carrying in your hands??",
-        choices: ["TV", "Slice of Toast", "Butter Knife"]
-    },
+        // Created a series of questions
+        inquirer.prompt([
 
-    {
-        type: "confirm",
-        name: "canLeave",
-        message: "Can you leave now?"
-    },
+            {
+                type: "input",
+                name: "letter",
+                message: "Guess a letter!"
+            }
 
-    {
-        type: "password",
-        name: "myPassword",
-        message: "Okay fine. You can stay. But only if you say the magic password."
+        ]).then(function(user) {
+
+            // If the user guesses the password...
+            if (user.letter === "chicken") {
+
+                // console.log("==============================================");
+                // console.log("");
+
+
+                // console.log("Well a deal's a deal " + user.letter);
+                // console.log("You can stay as long as you like.");
+                // console.log("Just put down the " + user.carryingWhat + ". It's kind of freaking me out.");
+                // console.log("");
+                // console.log("==============================================");
+
+
+
+            }  
+        }    
     }
-
-]).then(function(user) {
-
-    // If the user guesses the password...
-    if (user.myPassword === "chicken") {
-
-        console.log("==============================================");
-        console.log("");
-        console.log("Well a deal's a deal " + user.letter);
-        console.log("You can stay as long as you like.");
-        console.log("Just put down the " + user.carryingWhat + ". It's kind of freaking me out.");
-        console.log("");
-        console.log("==============================================");
-    }  
-    
-    
-
+}
 
   // This function is run whenever the user guesses a letter..
     updatePage: function(letter) {
