@@ -1,9 +1,9 @@
-// Contains a constructor, Letter. This constructor should be able to either 
-//display an underlying character or a blank placeholder (such as an underscore),
-//depending on whether or not the user has guessed the letter. That means the 
-//constructor should define:
-
-var GuessCheck = function(user, hangman) {
+/*------------------------------------------------------------------------------------
+                                LETTER CONSTRUCTOR
+    (displays an underlying character or a blank placeholder (such as an underscore),
+          depending on whether or not the user has guessed the letter)
+--------------------------------------------------------------------------------------*/
+var GuessCheck = function(underlying) {
     // A string value to store the underlying character for the letter
     this.underlying = underlying,
     // A boolean value that stores whether that letter has been guessed yet
@@ -15,7 +15,7 @@ var GuessCheck = function(user, hangman) {
         if (this.guessed) {
             // this.underlying; //If the response from the user entered(user.letter) is correct, assign to this.character
             return GuessCheck.underlying;
-            // console.log(GuessCheck.underlying);
+            console.log(GuessCheck.underlying);
             console.log("CORRECT!");
         }
         else {

@@ -1,10 +1,14 @@
+/*------------------------------------------------------------------------------------
+                                GAME CONSTRUCTOR
+                        (logic for the course of the game)
+--------------------------------------------------------------------------------------*/
 var inquirer = require("inquirer");
 
 
 // variable we will use to count how many times our questions have been asked
 var count = 0;
 // array in which we will store each of our new programmer objects
-var letterFromWordArray = [];
+var letterFromWordArray = ["car", "airplane", "boat", "motorcycle", "train", "bus", "ferry", "taxicab", "tram", "helicopter", "ricksaw", "monorail", "cable car", "submarine"];
 
 var askQuestion = function() {
   // if statement to ensure that our questions are only asked five times
