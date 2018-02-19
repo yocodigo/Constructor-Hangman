@@ -1,31 +1,40 @@
-// Contains a constructor, Word that depends on the Letter constructor. This is used to 
-//create an object representing the current word the user is attempting to guess. 
-//That means the constructor should define:
-
-var MatchWord = function(d, e, f) {
+/*------------------------------------------------------------------------------------
+                                WORD CONSTRUCTOR
+    (creates an object representing the current word the user is attempting to guess)
+--------------------------------------------------------------------------------------*/
+var MatchWord = function(hangman_word) {
     // An array of new Letter objects representing the letters of the underlying word
-    underlyingWord: [],      
-    
-
-
-    // A function that returns a string representing the word. This should call the 
-    //function on each letter object (the first function defined in Letter.js) that 
-    //displays the character or an underscore and concatenate those together.
-    word = function() {
-        for (i = 0; i < word.length; i++) {
-           var newGuess = new GuessCheck("c");
-           console.log() 
-        }       
-        displayCharacter();
+    underlyingWord = function() {
+        var splitWord = hangman_word.split("");
+    },    
+/*-----------------------------------------------------------------------------------
+     A function that returns a string representing the word. This should call the 
+    function on each letter object (the first function defined in Letter.js) that 
+    displays the character or an underscore and concatenate those together.
+-----------------------------------------------------------------------------------*/    
+    displayResult = function() {
+        displayedCharacters = "";
+        for (i = 0; i < hangman_word.length; i++) {
+            var newGuess = new GuessCheck(splitWord[i]);
+            displayedCharacters = displayedCharacters + newGuess.displayCharacter();
+        }
     },
-    
-    // A function that takes a character as an argument and calls the guess function 
-    //on each letter object (the second function defined in Letter.js)
-    word3: function(character) {
-        
-        guessedLetter();
+/*-----------------------------------------------------------------------------------
+    A function that takes a character as an argument and calls the guess function 
+    on each letter object (the second function defined in Letter.js)
+-----------------------------------------------------------------------------------*/    
+    LetterToMatch = function(playerChoice) {
+        choice = playerChoice
+        guessedLetter(choice);
+        displayResult();
     }
 
 };
 
-module.exports(HangmanWord);
+//temporary global variables
+var hangman_word = "car"; //will come from game.js
+var character = "c"; //will come from game.js
+newWordObject = new MatchWord(hangman_word);
+newWordObject(newWordObject.);
+
+module.exports(MatchWord);
