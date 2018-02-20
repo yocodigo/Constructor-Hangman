@@ -15,14 +15,10 @@ var GuessCheck = function(underlying) {
         if (this.guessed) {
             // this.underlying; //If the response from the user entered(user.letter) is correct, assign to this.character
             return GuessCheck.underlying;
-            console.log(GuessCheck.underlying);
-            console.log("CORRECT!");
         }
         else {
             this.underlying = "_";
             return GuessCheck.underlying;
-            // console.log(GuessCheck.underlying);
-            console.log("INCORRECT!");
         }
     };
     // A function that takes a character as an argument and checks it against the 
@@ -40,7 +36,6 @@ var GuessCheck = function(underlying) {
         }
         this.displayCharacter();
     };
-    
 };
 var guess = "z";
 var underlying = "d";
