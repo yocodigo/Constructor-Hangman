@@ -1,3 +1,8 @@
+var GuessCheck = require("./letter.js");
+//TEMP GLOBAL VARIABLES
+var playerChoice = "car"; //will come from game.js
+var character = "r"; //will come from game.js
+
 /*------------------------------------------------------------------------------------
                                 WORD CONSTRUCTOR
     (creates an object representing the current word the user is attempting to guess)
@@ -13,29 +18,32 @@ var MatchWord = function(hangman_word) {
         function on each letter object (the first function defined in Letter.js) that 
         displays the character or an underscore and concatenate those together.
     ------------------------------------------------------------------------------*/    
-    displayResult = function() {
-        displayedCharacters = "";
+    this.displayResult = function() {
+
+        var displayedCharacters = "";
         for (i = 0; i < hangman_word.length; i++) {
-            var newGuess = new GuessCheck(this.splitWord[i]);
+            var newGuess = new GuessCheck(this.hangman_word[i]);
             displayedCharacters = displayedCharacters + newGuess.displayCharacter();
         }
+        return displayedCharacters;
+
     };
     /*------------------------------------------------------------------------------
         A function that takes a character as an argument and calls the guess function 
         on each letter object (the second function defined in Letter.js)
     ------------------------------------------------------------------------------*/    
     LetterToMatch = function(playerChoice) {
-        choice = playerChoice
-        guessedLetter(choice);
-        displayResult();
+        var guess = "z";
+        var underlying = "d";
+        guess1 = new GuessCheck(guess, underlying);
+        var choice = playerChoice;
+        // guessedLetter(choice);
+        // displayResult();
     };
-
 };
 
-//temporary global variables
-var hangman_word = "car"; //will come from game.js
-var character = "c"; //will come from game.js
-newWordObject = new MatchWord(hangman_word);
-newWordObject(newWordObject.);
+newWordObject = new GuessCheck(playerChoice);
+newWordObject.guessedLetter();
+console.log(newWordObject.displayResult());
 
-module.exports(MatchWord);
+module.exports = MatchWord;
