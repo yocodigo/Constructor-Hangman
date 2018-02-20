@@ -2,18 +2,18 @@
                                 GAME CONSTRUCTOR
                         (logic for the course of the game)
 --------------------------------------------------------------------------------------*/
+
+//GLOBAL VARIABLES
 var inquirer = require("inquirer");
 
+//Words to select from for the game. Pass randomly selected word to word.js
+var letterFromWordArray = ["car", "airplane", "boat", "motorcycle", "train", "bus", "ferry", "taxicab", "tram", "helicopter", "ricksaw", "monorail", "cable car", "submarine"]; 
 
-// variable we will use to count how many times our questions have been asked
-var count = 0;
-// array in which we will store each of our new programmer objects
-var letterFromWordArray = ["car", "airplane", "boat", "motorcycle", "train", "bus", "ferry", "taxicab", "tram", "helicopter", "ricksaw", "monorail", "cable car", "submarine"];
-
+//
 var askQuestion = function() {
+  var guessLeft = 10;
   // if statement to ensure that our questions are only asked five times
-  if (count < word.length) {
-
+  if (guessLeft > 0) {
 
         // Created a series of questions
         inquirer.prompt([
@@ -28,17 +28,6 @@ var askQuestion = function() {
 
             // If the user guesses the password...
             if (user.letter === "chicken") {
-
-                // console.log("==============================================");
-                // console.log("");
-
-
-                // console.log("Well a deal's a deal " + user.letter);
-                // console.log("You can stay as long as you like.");
-                // console.log("Just put down the " + user.carryingWhat + ". It's kind of freaking me out.");
-                // console.log("");
-                // console.log("==============================================");
-
 
 
             }  
@@ -193,3 +182,30 @@ var askQuestion = function() {
     hangmanGame.updatePage(hangmanGame.letterGuessed);
   };
   
+
+
+
+  this.askForLetter = function() {
+    return inquirer
+      .prompt([
+        {
+          type: 'input',
+          name: 'choice',
+          message: 'Guess a letter!',
+          
+          }
+        }
+      ])
+      .then(function(val) {
+        // If the user's guess is in the current word, log that they chose correctly
+        var didGuessCorrectly = self.currentWord
+        if (didGuessCorrectly) {
+          console.log('\nCORRECT!!!\n');
+          // Otherwise decrement `guessesLeft`, and let the user know how many guesses they have left
+        } else {
+          self.guessesLeft--;
+          console.log('\nINCORRECT!!!\n');
+          console.log(self.guessesLeft + ' guesses remaining!!!\n');
+        }
+      });
+  };
