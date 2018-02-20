@@ -41,9 +41,9 @@ var GuessCheck = function(underlying) {
     this.guessedLetter(guess);
     this.displayCharacter();
 };
-var guess = "a";
+var guess = "z";
 var underlying = "d";
 guess1 = new GuessCheck(guess, underlying);
-console.log(guess1.underlying);
+// console.log(guess1.underlying);
 
-// module.exports(GuessCheck);
+module.exports = GuessCheck;
