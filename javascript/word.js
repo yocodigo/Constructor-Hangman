@@ -2,7 +2,7 @@
 var GuessCheck = require("./letter.js");
 //TEMP GLOBAL VARIABLES
 var hangman_word = "car"; //will come from game.js
-// var testPlayerChoice = "z";//will come from game.js
+var testPlayerChoice = "z";//will come from game.js
 /*------------------------------------------------------------------------------------
                                 WORD CONSTRUCTOR
     (creates an object representing the current word the user is attempting to guess)
@@ -30,14 +30,17 @@ var MatchWord = function(hangman_word) {
         A function that takes a character as an argument and calls the guess function 
         on each letter object (the second function defined in Letter.js)
     ------------------------------------------------------------------------------*/    
-    LetterToMatch = function(testPlayerChoice) {
-        for (i = 0; i < testPlayerChoice.length; i++) {
-            newLetter = new GuessCheck(testPlayerChoice[i]);
-            newLetter.guessedLetter();
+    LetterToMatch = function(LetterArray) {
+        for (i = 0; i < LetterArray.length; i++) {
+            newLetterObject = new GuessCheck(LetterArray[i]);
+            return newLetterObject;
+            console.log(newLetterObject.LetterToMatch());
+            newLetterObject.guessedLetter();
+        };
     };
-};
+};    
 //FOR TESTING PURPOSES
-// newWordObject = new GuessCheck(testPlayerChoice);
-// newWordObject.guessedLetter();
+newWordObject = new MatchWord(hangman_word);
+newWordObject.underlyingLetterArray(); //Run the underlyingLetterArray function
 // console.log(newWordObject.displayResult());
 module.exports = MatchWord;

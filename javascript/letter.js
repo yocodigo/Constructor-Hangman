@@ -1,3 +1,7 @@
+//TEMP GLOBAL VARIABLES
+var guess = "z";
+// var underlying = "d";
+
 /*------------------------------------------------------------------------------------
                                 LETTER CONSTRUCTOR
     (displays an underlying character or a blank placeholder (such as an underscore),
@@ -37,9 +41,7 @@ var GuessCheck = function(underlying) {
         this.displayCharacter();
     };
 };
-var guess = "z";
-var underlying = "d";
-guess1 = new GuessCheck(guess, underlying);
+//FOR TESTING PURPOSES
 // console.log(guess1.underlying);
 
 module.exports = GuessCheck;
