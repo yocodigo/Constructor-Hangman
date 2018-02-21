@@ -29,7 +29,7 @@ var GuessCheck = function(underlying) {
     //underlying character, updating the stored boolean value to true if it was 
     //guessed correctly
     this.guessedLetter = function() {
-       //get letter from game.js
+        //get letter(guess) from game.js
         if (guess === this.underlying) {
             this.guessed = true;
             return true;

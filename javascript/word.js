@@ -12,7 +12,7 @@ var MatchWord = function(hangman_word) {
     this.underlyingLetterArray = function() {
         var hangmanLetterArray = hangman_word.split("");
         LetterToMatch(hangmanLetterArray);
-        // return hangmanLetterArray;
+        return hangmanLetterArray;
     };
     /*------------------------------------------------------------------------------
         A function that returns a string representing the word. This should call the 
@@ -34,7 +34,6 @@ var MatchWord = function(hangman_word) {
         for (i = 0; i < LetterArray.length; i++) {
             newLetterObject = new GuessCheck(LetterArray[i]);
             return newLetterObject;
-            console.log(newLetterObject.LetterToMatch());
             newLetterObject.guessedLetter();
         };
     };
@@ -42,5 +41,7 @@ var MatchWord = function(hangman_word) {
 //FOR TESTING PURPOSES
 newWordObject = new MatchWord(hangman_word);
 newWordObject.underlyingLetterArray(); //Run the underlyingLetterArray function
+console.log(newWordObject.underlyingLetterArray());
+console.log(newWordObject.LetterToMatch());
 // console.log(newWordObject.displayResult());
 module.exports = MatchWord;
